@@ -1,0 +1,27 @@
+﻿@model BicycleStore.Models.Order
+@{
+
+}
+
+<div>
+    <h1>Purchase form</h1>
+    <form method="post">
+        <input type="hidden" value="@ViewBag.BicycleId" name="BicycleId" />
+        <div>
+            @Html.LabelFor(x => x.CustomerName)
+            @Html.TextBoxFor(x => x.CustomerName)
+            @Html.ValidationMessageFor(x => x.CustomerName)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.CustomerPhoneNumber)
+            @Html.TextBoxFor(x => x.CustomerPhoneNumber)
+            @Html.ValidationMessageFor(x => x.CustomerPhoneNumber)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.CustomerEmail)
+            @Html.TextBoxFor(x => x.CustomerEmail)
+            @Html.ValidationMessageFor(x => x.CustomerEmail)
+        </div>
+        <input type="submit" value="Send" />
+    </form>
+</div>

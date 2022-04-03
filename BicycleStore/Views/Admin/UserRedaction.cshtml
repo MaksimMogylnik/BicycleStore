@@ -1,0 +1,34 @@
+﻿@model List<BicycleStore.Models.User>
+@{
+}
+
+<table class="table table-bordered border-primary table-dark mt-3">
+    <thead>
+        <tr>
+            <th>E-mail</th>
+            <th>Change password</th>
+            <th>Set roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <form method="post" action="~/Admin/ChangeUserPassword">
+                        <input type="hidden" value="@user.Id" name="id" />
+                        <input type="text" value="New password" name="newPassword" />
+                        <input type="submit" value="Change password" class="btn btn-danger" />
+                    </form>
+                </td>
+                <td>
+                    <form action="~/Roles/Index">
+                        <input type="hidden" value="@user.Id" name="id" />
+                        <input type="submit" value="Edit roles" class="btn btn-info" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

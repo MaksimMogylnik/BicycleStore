@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BicycleStore.Models.Bicycle>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bicycle store</title>
+</head>
+<body>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>@ViewBag.IndexMessage</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-row justify-content-center">
+        @foreach(var prop in ViewBag.Props)
+            {
+                <a class="btn btn-primary" href="~/Home/Index?prop=@prop"> @prop </a>
+            }
+    </div>
+
+    <h1>Our offers:</h1>
+    <table class="table table-bordered border-primary table-dark mt-3">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Picture</th>
+                <th>Weight</th>
+                <th>Material</th>
+                <th>Color</th>
+                <th>Wheel Diameter</th>
+                <th>Additional Info</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bicycle in Model)
+            {
+            <tr>
+                <td>@bicycle.BicycleTitle</td>
+                <td>
+                    <img src="@bicycle.BicycleImage" style="width: 128px; height: 64px;"/>
+                </td>
+                <td>@bicycle.BicycleWeight</td>
+                <td>@bicycle.BicycleMaterial</td>
+                <td>@bicycle.BicycleColor</td>
+                <td>@bicycle.BicycleWheelDiameter</td>
+                <td>@bicycle.BicycleAdditionalInfo</td>
+                <td>@bicycle.BicyclePrice</td>
+                <td><a href="~/Home/Buy/@bicycle.BicycleId">Buy</a></td>
+                <td>
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        <input type="hidden" value="@bicycle.BicycleId" name="BicycleId" />
+                        @Html.Hidden("returnUrl", Context.Request.Path)
+                        <input type="submit" value="Add to Cart" class="btn btn-success" />
+                    }
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

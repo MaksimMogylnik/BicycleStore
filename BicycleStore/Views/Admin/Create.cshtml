@@ -1,0 +1,42 @@
+﻿@model BicycleStore.Models.Bicycle
+@{
+}
+
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post, new
+{ enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.BicycleId)
+    <div>
+        @Html.LabelFor(x => x.BicycleTitle)
+        @Html.TextBoxFor(x => x.BicycleTitle)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicycleWeight)
+        @Html.TextBoxFor(x => x.BicycleWeight)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicycleMaterial)
+        @Html.TextBoxFor(x => x.BicycleMaterial)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicycleColor)
+        @Html.TextBoxFor(x => x.BicycleColor)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicycleWheelDiameter)
+        @Html.TextBoxFor(x => x.BicycleWheelDiameter)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicycleAdditionalInfo)
+        @Html.TextBoxFor(x => x.BicycleAdditionalInfo)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.BicyclePrice)
+        @Html.TextBoxFor(x => x.BicyclePrice)
+    </div>
+    <div>
+        <label>Add picture:</label>
+        <input type="file" name="formFile"/>
+    </div>
+    <input type="submit" value="Create" />
+}

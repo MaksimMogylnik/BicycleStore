@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BicycleStore.Models.Bicycle>
+
+<h1>Greetings, @User.Identity.Name!</h1>
+
+<div>
+    <a href="~/Admin/Create" class="btn btn-primary">Create</a>
+</div>
+
+<table class="table table-bordered border-primary table-dark mt-3">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Weight</th>
+            <th>Material</th>
+            <th>Color</th>
+            <th>Wheel Diameter</th>
+            <th>Additional Info</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bicycle in Model)
+        {
+        <tr>
+            <td>@bicycle.BicycleTitle</td>
+            <td>@bicycle.BicycleWeight</td>
+            <td>@bicycle.BicycleMaterial</td>
+            <td>@bicycle.BicycleColor</td>
+            <td>@bicycle.BicycleWheelDiameter</td>
+            <td>@bicycle.BicycleAdditionalInfo</td>
+            <td>@bicycle.BicyclePrice</td>
+            <td><a href="~/Admin/Create/@bicycle.BicycleId" class="btn btn-warning">Edit</a></td>
+            <td>
+                <form method="post" action="~/Admin/Delete">
+                    <input type="hidden" value="@bicycle.BicycleId" name="BicycleId" />
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

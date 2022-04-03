@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+
+        <div id="loginForm">
+            <label for="email"> Email: </label>
+            <input type="text" id="email" />
+            <label for="password"> Password: </label>
+            <input type="password" id="password" />
+            <button id="submitLogin"> Login </button>
+        </div>
+
+        <h1>Bicycle list</h1>
+
+        <div id="errors" class="alert alert-danger" style="display:none;"></div>
+
+        <form name="bicycleForm">
+            <input type="hidden" name="bicycleId" id="bicycleId" value="0" />
+            <div class="form-group">
+                <label for="bicycleTitle">bicycleTitle: </label>
+                <input type="text" name="bicycleTitle" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleImage"> bicycleImage: </label>
+                <input type="file" name="bicycleImage" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleWeight">bicycleWeight: </label>
+                <input type="number" name="bicycleWeight" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleMaterial">bicycleMaterial: </label>
+                <input type="text" name="bicycleMaterial" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleColor">bicycleColor: </label>
+                <input type="text" name="bicycleColor" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleWheelDiameter">bicycleWheelDiameter: </label>
+                <input type="text" name="bicycleWheelDiameter" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicycleAdditionalInfo">bicycleAdditionalInfo: </label>
+                <input type="text" name="bicycleAdditionalInfo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="bicyclePrice">bicyclePrice: </label>
+                <input type="number" name="bicyclePrice" class="form-control" />
+            </div>
+
+            <button type="submit" id="submit" class="btn btn-primary">Add</button>
+
+            <button type="button" id="save" class="btn btn-primary ml-4">Save changes</button>
+
+        </form>
+
+
+        <table class="table table-bordered border-primary table-dark mt-3">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Picture</th>
+                    <th>Weight</th>
+                    <th>Material</th>
+                    <th>Color</th>
+                    <th>Wheel Diameter</th>
+                    <th>Additional Info</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
